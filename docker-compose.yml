@@ -6,7 +6,6 @@ services:
       MYSQL_DATABASE: transporte_db
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      # Este es el truco: mapeamos tu SQL a la carpeta de inicio de MySQL
       - ./SistTransporteEPN_Backend/BDD.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
@@ -15,10 +14,20 @@ services:
     build: ./SistTransporteEPN_Backend
     depends_on:
       - db
+    environment:
+      # AQUÍ ESTÁ EL TRUCO: El host es 'db', no 'localhost'
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=transporte_db
+      - PORT=8000
     ports:
       - "8000:8000"
 
   frontend:
     build: ./SistTransporteEPN_Frontend
+    environment:
+      # El navegador de Cypress (en network host) buscará al backend en localhost
+      - REACT_APP_API_URL=http://localhost:8000
     ports:
       - "3000:3000"
