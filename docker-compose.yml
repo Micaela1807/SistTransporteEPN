@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: transporte_db
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      # Este es el truco: mapeamos tu SQL a la carpeta de inicio de MySQL
+      - ./SistTransporteEPN_Backend/BDD.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: ./SistTransporteEPN_Backend
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./SistTransporteEPN_Frontend
+    ports:
+      - "3000:3000"
