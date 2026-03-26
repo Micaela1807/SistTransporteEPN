@@ -1,0 +1,45 @@
+.estudiante-ruta-check {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  padding: 0;
+}
+
+.estudiante-ruta-check-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  justify-content: space-between;
+}
+
+.MapaInteractivo {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+ 
+  .pantalla-estudiante-seleccion-de-parada-text20 {
+    fill: var(--dl-color-theme-accent1);
+    color: var(--dl-color-theme-accent1);
+    display: inline-block;
+    font-size: 25px;
+  }
+  .pantalla-estudiante-seleccion-de-parada-container4 {
+    flex:5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+.MapaInteractivo h1 {
+    text-align: center;
+  }
