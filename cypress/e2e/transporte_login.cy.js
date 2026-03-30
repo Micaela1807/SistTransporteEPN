@@ -11,7 +11,7 @@ describe('Certificación de Acceso - Sistema de Transporte EPN', () => {
     cy.get('.inicio-sesion-boton').click()
 
     // 4. VERIFICACIÓN DE FLUJO:
-    // Según tu código, el admin es redirigido a /administrador/inicio
+    // Según el código, el admin es redirigido a /administrador/inicio
     cy.url({ timeout: 10000 }).should('include', '/administrador/inicio')
 
     // 5. VERIFICACIÓN DE SEGURIDAD (Caja Negra):
