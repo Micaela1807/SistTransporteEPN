@@ -4,7 +4,7 @@ pipeline {
         stage('1. Preparar') {
             steps { checkout scm }
         }
-        stage('2. Levantar Entorno') {
+        stage('2. Levantar Entorno - Docker Compose') {
             steps {
                 sh 'docker-compose up -d --build'
                 echo 'Esperando 30s a que MySQL procese el BDD.sql...'
